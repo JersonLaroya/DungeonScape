@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2uoc73ikps6p"]
+
+[ext_resource type="PackedScene" uid="uid://ndsdtqmlqq3v" path="res://glb_models/medieval_door_pack.glb" id="1_6jh47"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_6jh47")]

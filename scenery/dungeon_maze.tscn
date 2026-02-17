@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://fsgpvqh8skdy"]
+
+[ext_resource type="PackedScene" uid="uid://c1vrnev2nb41r" path="res://glb_models/DungeonMaze.glb" id="1_7m4n1"]
+
+[node name="DungeonMaze" instance=ExtResource("1_7m4n1")]
+
+[node name="Ceiling" parent="." index="18"]
+visible = false

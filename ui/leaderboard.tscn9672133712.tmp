@@ -1,0 +1,160 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsy6xt2bk2eto"]
+
+[sub_resource type="GDScript" id="GDScript_143yq"]
+script/source = "extends CanvasLayer
+
+@onready var rank_container = $rank_container
+@onready var name_container = $name_container
+@onready var score_container = $score_container
+
+func show_leaderboard():
+	# Clear old labels
+	for child in score_container.get_children():
+		child.queue_free()
+	for child in name_container.get_children():
+		child.queue_free()
+	for child in rank_container.get_children():
+		child.queue_free()
+
+	# Load leaderboard data
+	var path = \"user://leaderboard.json\"
+	var data: Array = []
+
+	if FileAccess.file_exists(path):
+		var file = FileAccess.open(path, FileAccess.READ)
+		if file:
+			var text = file.get_as_text()
+			var parsed = JSON.parse_string(text)
+			if parsed is Array:
+				data = parsed
+			file.close()
+
+	# Get the current player name dynamically
+	var current_player_name = \"\"
+	if Engine.has_singleton(\"PlayerData\"):  # Example autoload singleton
+		current_player_name = Engine.get_singleton(\"PlayerData\").name
+	else:
+		# fallback: take the last saved player in leaderboard
+		if data.size() > 0:
+			current_player_name = data[data.size() - 1].get(\"name\", \"\")
+
+	# Collect scores in an array
+	var scores: Array = []
+	for entry in data:
+		scores.append(int(entry.get(\"orbs\", 0)))  # Default 0 if missing
+
+	# Sort scores descending
+	scores.sort()    # Sort ascending
+	scores.reverse() # Reverse to descending
+
+	# Populate labels (only top 10)
+	for i in range(min(scores.size(), 10)):
+		var score = scores[i]
+		var rank = i + 1  # Rank starts from 1
+
+		# Find the corresponding name
+		var name = \"Unknown\"
+		for entry in data:
+			if int(entry.get(\"orbs\", 0)) == score:
+				name = entry.get(\"name\", \"Unknown\")
+				data.erase(entry)  # Remove to handle duplicate scores correctly
+				break
+
+		# Replace current player's name with \"You\"
+		if name == current_player_name:
+			name = \"You\"
+
+		# Rank label
+		var r_label = Label.new()
+		r_label.text = str(rank)
+		r_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		r_label.size_flags_horizontal = Control.SIZE_FILL | Control.SIZE_EXPAND
+		rank_container.add_child(r_label)
+
+		# Name label
+		var n_label = Label.new()
+		n_label.text = name
+		n_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		n_label.size_flags_horizontal = Control.SIZE_FILL | Control.SIZE_EXPAND
+		name_container.add_child(n_label)
+
+		# Score label
+		var s_label = Label.new()
+		s_label.text = \"Score: \" + str(score)
+		s_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		s_label.size_flags_horizontal = Control.SIZE_FILL | Control.SIZE_EXPAND
+		score_container.add_child(s_label)
+		print(\"Score: \", score)
+
+		# Highlight current player
+		if name == \"You\":
+			r_label.add_theme_color_override(\"font_color\", Color(1.0, 0.0, 0.0))
+			r_label.set(\"theme_override_font_sizes/font_size\", 22)
+			
+			n_label.add_theme_color_override(\"font_color\", Color(1.0, 0.0, 0.0))
+			n_label.set(\"theme_override_font_sizes/font_size\", 22)
+			
+			s_label.add_theme_color_override(\"font_color\", Color(1.0, 0.0, 0.0))
+			s_label.set(\"theme_override_font_sizes/font_size\", 22)
+"
+
+[node name="leaderboard" type="CanvasLayer"]
+layer = 2
+script = SubResource("GDScript_143yq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -50.0
+offset_right = 1179.0
+offset_bottom = 655.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 219.0
+offset_top = 51.0
+offset_right = 968.0
+offset_bottom = 152.0
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]LEADERBOARD
+"
+
+[node name="close_button" type="Button" parent="."]
+offset_left = 1092.0
+offset_top = 6.0
+offset_right = 1147.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[node name="rank_container" type="VBoxContainer" parent="."]
+offset_left = 336.0
+offset_top = 170.0
+offset_right = 384.0
+offset_bottom = 635.0
+
+[node name="rank_label" type="Label" parent="rank_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="name_container" type="VBoxContainer" parent="."]
+offset_left = 416.0
+offset_top = 170.0
+offset_right = 761.0
+offset_bottom = 635.0
+
+[node name="name_label" type="Label" parent="name_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="score_container" type="VBoxContainer" parent="."]
+offset_left = 770.0
+offset_top = 170.0
+offset_right = 884.0
+offset_bottom = 635.0
+
+[node name="score_label" type="Label" parent="score_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1

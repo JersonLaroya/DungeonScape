@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://rgbbwvxru2rf"]
+
+[ext_resource type="Script" uid="uid://br8mtfa076v6a" path="res://scripts/home_page.gd" id="1_hjpqj"]
+[ext_resource type="Texture2D" uid="uid://bkjhw0kdducfk" path="res://images/titlescreen.png" id="2_stwff"]
+[ext_resource type="Shader" uid="uid://cytbetwpedauy" path="res://ui/shader/home_page.gdshader" id="3_2n5tl"]
+[ext_resource type="AudioStream" uid="uid://bdxq480qla7j1" path="res://sounds/opening.wav" id="3_stwff"]
+[ext_resource type="FontFile" uid="uid://d1g45q0he7eby" path="res://fonts/DUNGRG__.TTF" id="4_fx7gv"]
+[ext_resource type="FontFile" uid="uid://w01nmq2vu7d1" path="res://fonts/Melted Monster.ttf" id="5_87r1y"]
+[ext_resource type="AudioStream" uid="uid://cnw2xv5ia7of" path="res://sounds/button_click.wav" id="7_87r1y"]
+[ext_resource type="AudioStream" uid="uid://bpqwpdv1p7l0l" path="res://sounds/hover.wav" id="8_sjl2v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sjl2v"]
+shader = ExtResource("3_2n5tl")
+
+[node name="home_page" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hjpqj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1153.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+offset_left = 210.0
+offset_top = -143.0
+offset_right = 997.0
+offset_bottom = 447.0
+texture = ExtResource("2_stwff")
+expand_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color(0.505882, 0.521569, 0.537255, 1)
+material = SubResource("ShaderMaterial_sjl2v")
+offset_left = -23.0
+offset_top = -1.0
+offset_right = 769.0
+offset_bottom = 250.0
+theme_override_fonts/normal_font = ExtResource("4_fx7gv")
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "[center]Dungeon"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color(0.698039, 0, 0, 1)
+offset_left = 441.0
+offset_top = 22.0
+offset_right = 1233.0
+offset_bottom = 273.0
+theme_override_fonts/normal_font = ExtResource("5_87r1y")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[center]SCAPE"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 238.0
+offset_right = 1154.0
+offset_bottom = 289.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Enter Name:"
+
+[node name="player_name" type="LineEdit" parent="CanvasLayer"]
+offset_left = 478.0
+offset_top = 286.0
+offset_right = 690.0
+offset_bottom = 346.0
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 445.0
+offset_top = 420.0
+offset_right = 718.0
+offset_bottom = 498.0
+theme_override_font_sizes/font_size = 30
+text = "Enter"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_stwff")
+autoplay = true
+bus = &"Music"
+
+[node name="interact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_87r1y")
+bus = &"SFX"
+
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_sjl2v")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="CanvasLayer/Button" to="." method="play_hover"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="enter_game"]

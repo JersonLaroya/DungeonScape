@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b108fak356rav"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_owpjt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d08fl"]
+emission_enabled = true
+emission = Color(0.956808, 0.810813, 0.588253, 1)
+emission_energy_multiplier = 6.0
+
+[node name="light_strip" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("BoxMesh_owpjt")
+surface_material_override/0 = SubResource("StandardMaterial3D_d08fl")

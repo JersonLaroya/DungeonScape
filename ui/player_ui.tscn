@@ -1,0 +1,122 @@
+[gd_scene load_steps=11 format=3 uid="uid://sjxm545bwgk7"]
+
+[ext_resource type="PackedScene" uid="uid://dxb55e6brvqem" path="res://ui/pause_menu.tscn" id="1_cfom6"]
+[ext_resource type="Script" uid="uid://y3qwmeivdmsg" path="res://scripts/player_ui.gd" id="1_vq5xy"]
+[ext_resource type="PackedScene" uid="uid://bbeluq1okbp6c" path="res://ui/settings.tscn" id="2_lp0io"]
+[ext_resource type="AudioStream" uid="uid://cnw2xv5ia7of" path="res://sounds/button_click.wav" id="4_b6i2q"]
+[ext_resource type="AudioStream" uid="uid://bpqwpdv1p7l0l" path="res://sounds/hover.wav" id="4_iwa1g"]
+[ext_resource type="PackedScene" uid="uid://c1xvibmflfb8q" path="res://ui/controls.tscn" id="6_ykvpg"]
+[ext_resource type="PackedScene" uid="uid://cmxwn8f6trbbv" path="res://ui/message_ui.tscn" id="7_hff70"]
+[ext_resource type="PackedScene" uid="uid://d36i7w6uv6vth" path="res://ui/go_to_exit_message.tscn" id="8_f7sc3"]
+[ext_resource type="PackedScene" uid="uid://cqg8vshiac4uh" path="res://ui/ending.tscn" id="9_g1ro4"]
+[ext_resource type="PackedScene" uid="uid://dsy6xt2bk2eto" path="res://ui/leaderboard.tscn" id="10_b6i2q"]
+
+[node name="player_ui" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vq5xy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="settings" parent="." instance=ExtResource("2_lp0io")]
+visible = false
+
+[node name="pause_menu" parent="." instance=ExtResource("1_cfom6")]
+visible = false
+
+[node name="interact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_b6i2q")
+bus = &"SFX"
+
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_iwa1g")
+bus = &"SFX"
+
+[node name="Controls" parent="." instance=ExtResource("6_ykvpg")]
+visible = false
+
+[node name="message_ui" parent="." instance=ExtResource("7_hff70")]
+visible = false
+
+[node name="go_to_exit_message" parent="." instance=ExtResource("8_f7sc3")]
+
+[node name="ending" parent="." instance=ExtResource("9_g1ro4")]
+visible = false
+
+[node name="leaderboard" parent="." instance=ExtResource("10_b6i2q")]
+visible = false
+
+[node name="are_you_sure" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="are_you_sure"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.701961)
+
+[node name="Button" type="Button" parent="are_you_sure"]
+offset_left = 446.0
+offset_top = 229.0
+offset_right = 698.0
+offset_bottom = 288.0
+text = "Yes"
+
+[node name="Button2" type="Button" parent="are_you_sure"]
+offset_left = 446.0
+offset_top = 308.0
+offset_right = 698.0
+offset_bottom = 367.0
+text = "No"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="are_you_sure"]
+offset_top = 99.0
+offset_right = 1153.0
+offset_bottom = 222.0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]Are you sure you want to quit?"
+
+[connection signal="mouse_entered" from="settings/window_mode_options" to="." method="play_hover"]
+[connection signal="pressed" from="settings/window_mode_options" to="." method="play_interact"]
+[connection signal="mouse_entered" from="settings/music_button" to="." method="play_hover"]
+[connection signal="pressed" from="settings/music_button" to="." method="play_interact"]
+[connection signal="mouse_entered" from="settings/SFX" to="settings" method="play_hover"]
+[connection signal="mouse_entered" from="settings/sfx_button" to="." method="play_hover"]
+[connection signal="pressed" from="settings/sfx_button" to="." method="play_interact"]
+[connection signal="mouse_entered" from="settings/close_button" to="." method="play_hover"]
+[connection signal="pressed" from="settings/close_button" to="." method="close_menus"]
+[connection signal="mouse_entered" from="pause_menu/resume" to="." method="play_hover"]
+[connection signal="pressed" from="pause_menu/resume" to="." method="resume_game"]
+[connection signal="mouse_entered" from="pause_menu/restart" to="." method="play_hover"]
+[connection signal="pressed" from="pause_menu/restart" to="." method="restart_game"]
+[connection signal="mouse_entered" from="pause_menu/settings" to="." method="play_hover"]
+[connection signal="pressed" from="pause_menu/settings" to="." method="open_settings"]
+[connection signal="mouse_entered" from="pause_menu/controls" to="." method="play_hover"]
+[connection signal="pressed" from="pause_menu/controls" to="." method="open_controls"]
+[connection signal="mouse_entered" from="pause_menu/main_menu" to="." method="play_hover"]
+[connection signal="pressed" from="pause_menu/main_menu" to="." method="main_menu"]
+[connection signal="mouse_entered" from="pause_menu/quit_game" to="." method="play_hover"]
+[connection signal="pressed" from="pause_menu/quit_game" to="." method="quit_game"]
+[connection signal="mouse_entered" from="Controls/close_button" to="." method="play_hover"]
+[connection signal="pressed" from="Controls/close_button" to="." method="close_menus"]
+[connection signal="mouse_entered" from="ending/play_again" to="." method="play_hover"]
+[connection signal="pressed" from="ending/play_again" to="." method="restart_game"]
+[connection signal="mouse_entered" from="ending/Main Menu" to="." method="play_hover"]
+[connection signal="pressed" from="ending/Main Menu" to="." method="main_menu"]
+[connection signal="mouse_entered" from="leaderboard/close_button" to="." method="play_hover"]
+[connection signal="pressed" from="leaderboard/close_button" to="." method="close_leaderboard"]
+[connection signal="mouse_entered" from="are_you_sure/Button" to="." method="play_hover"]
+[connection signal="pressed" from="are_you_sure/Button" to="." method="confirm_yes"]
+[connection signal="mouse_entered" from="are_you_sure/Button2" to="." method="play_hover"]
+[connection signal="pressed" from="are_you_sure/Button2" to="." method="confirm_no"]
+
+[editable path="settings"]
+[editable path="pause_menu"]
+[editable path="Controls"]
+[editable path="ending"]
+[editable path="leaderboard"]

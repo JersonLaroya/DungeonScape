@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2fh305jx7x41"]
+
+[ext_resource type="Script" uid="uid://tdm1opw4s2a5" path="res://scripts/hud.gd" id="1_rbyyf"]
+
+[node name="HUD" type="CanvasLayer" groups=["hud"]]
+script = ExtResource("1_rbyyf")
+
+[node name="orb_count" type="Label" parent="."]
+offset_left = 549.0
+offset_top = 13.0
+offset_right = 589.0
+offset_bottom = 36.0
+text = "Orbs"

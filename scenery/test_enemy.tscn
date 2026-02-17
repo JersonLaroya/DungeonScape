@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhwh0nodt0q4h"]
+
+[ext_resource type="PackedScene" uid="uid://b2i12ob3groiu" path="res://scenery/monster_enemy.tscn" id="4_mx30k"]
+[ext_resource type="AudioStream" uid="uid://b4quk6ysw1ntg" path="res://sounds/jumpscare.wav" id="5_bf4tb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0y524"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yjxpk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yjxpk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjxpk"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.282353)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qjjs4"]
+material = SubResource("StandardMaterial3D_yjxpk")
+
+[node name="enemy" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34432, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_0y524")
+mesh = SubResource("CylinderMesh_yjxpk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.236264, 0)
+shape = SubResource("BoxShape3D_yjxpk")
+
+[node name="monster_enemy" parent="." instance=ExtResource("4_mx30k")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0.096626, 0.837836, 0.182569)
+
+[node name="SpotLight3D" parent="monster_enemy" index="3"]
+transform = Transform3D(1, -2.52362e-06, 1.44561e-07, 2.19923e-06, 0.896803, 0.442429, -1.24617e-06, -0.442429, 0.896803, -0.00750725, 3.83095, 4.62553)
+
+[node name="eye_glow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.847, 0, 0, 0, 1, 0.126027, 2.55285, -0.0519822)
+mesh = SubResource("SphereMesh_qjjs4")
+skeleton = NodePath("")
+
+[node name="jumpscare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bf4tb")
+volume_db = 12.0
+bus = &"Music"
+
+[editable path="monster_enemy"]

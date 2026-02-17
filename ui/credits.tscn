@@ -1,0 +1,691 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds63dx3aheixf"]
+
+[sub_resource type="Animation" id="Animation_ed0b0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1486)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("credits/title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("credits/h:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 171)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("credits/n:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 259)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("credits/n2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 299)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("credits/n3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 337)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("credits/n4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 372)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("credits/n5:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 406)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("credits/h2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 508)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("credits/s:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 589)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("credits/s2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 623)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("credits/s3:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.0773594, 654.041)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("credits/h5:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 774)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("credits/m:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 854)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("credits/m2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 884)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("credits/h3:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1023)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("credits/t:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1102)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("credits/t2:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1139)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("credits/t3:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1173)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("credits/h4:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1428)]
+}
+
+[sub_resource type="Animation" id="Animation_06xqq"]
+resource_name = "credits"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 682), Vector2(0, -1486)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("credits/title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("credits/h:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 171), Vector2(0, 171)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("credits/n:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 259), Vector2(0, 259)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("credits/n2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 299), Vector2(0, 299)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("credits/n3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 337), Vector2(0, 337)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("credits/n4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 372), Vector2(0, 372)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("credits/n5:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 406), Vector2(0, 406)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("credits/h2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 508), Vector2(0, 508)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("credits/s:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 589), Vector2(0, 589)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("credits/s2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 623), Vector2(0, 623)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("credits/s3:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.0773594, 654.041), Vector2(-0.0773594, 654.041)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("credits/h5:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 774), Vector2(0, 774)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("credits/m:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 854), Vector2(0, 854)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("credits/m2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 884), Vector2(0, 884)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("credits/h3:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1023), Vector2(0, 1023)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("credits/t:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1102), Vector2(0, 1102)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("credits/t2:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1139), Vector2(0, 1139)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("credits/t3:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1173), Vector2(0, 1173)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("credits/h4:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1428), Vector2(0, 1428)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_orljq"]
+_data = {
+&"RESET": SubResource("Animation_ed0b0"),
+&"credits": SubResource("Animation_06xqq")
+}
+
+[node name="credits" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1172.0
+offset_bottom = 679.0
+color = Color(0, 0, 0, 1)
+
+[node name="credits" type="RichTextLabel" parent="."]
+offset_top = -1167.43
+offset_right = 1174.0
+offset_bottom = 324.566
+
+[node name="title" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 99.0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]CREDITS"
+
+[node name="h" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 171.0
+offset_right = 1150.0
+offset_bottom = 251.0
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Members"
+
+[node name="n" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 259.0
+offset_right = 1150.0
+offset_bottom = 339.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Jerson B. Laroya"
+
+[node name="n2" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 299.0
+offset_right = 1150.0
+offset_bottom = 379.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Lindy Mandawe"
+
+[node name="n3" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 337.0
+offset_right = 1150.0
+offset_bottom = 417.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Diana Rose R. Atuel"
+
+[node name="n4" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 372.0
+offset_right = 1150.0
+offset_bottom = 452.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Laurence H .Reyes"
+
+[node name="n5" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 406.0
+offset_right = 1150.0
+offset_bottom = 486.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Kenneth R. Gutierrez"
+
+[node name="h2" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 508.0
+offset_right = 1150.0
+offset_bottom = 588.0
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Sound & Music"
+
+[node name="s" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 589.0
+offset_right = 1150.0
+offset_bottom = 669.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Mixkit.co"
+
+[node name="s2" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 623.0
+offset_right = 1150.0
+offset_bottom = 703.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Freesound.org"
+
+[node name="s3" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_left = -0.0773594
+offset_top = 654.041
+offset_right = 1149.92
+offset_bottom = 734.041
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Pixabay.com"
+
+[node name="h5" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 774.0
+offset_right = 1150.0
+offset_bottom = 854.0
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]3D Model & Textures"
+
+[node name="m" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 854.0
+offset_right = 1150.0
+offset_bottom = 934.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Medieval Door Pack — Thangzy (Sketchfab, CC-BY)"
+
+[node name="m2" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 884.0
+offset_right = 1150.0
+offset_bottom = 964.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Polyhaven.com"
+
+[node name="h3" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 1023.0
+offset_right = 1150.0
+offset_bottom = 1103.0
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Tools Used"
+
+[node name="t" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 1102.0
+offset_right = 1150.0
+offset_bottom = 1182.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Godot Engine 4"
+
+[node name="t2" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 1139.0
+offset_right = 1150.0
+offset_bottom = 1219.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Blender"
+
+[node name="t3" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 1173.0
+offset_right = 1150.0
+offset_bottom = 1253.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Audacity"
+
+[node name="h4" type="RichTextLabel" parent="credits"]
+layout_mode = 0
+offset_top = 1428.0
+offset_right = 1150.0
+offset_bottom = 1508.0
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Thank You For Playing!"
+
+[node name="close_button" type="Button" parent="."]
+offset_left = 1092.0
+offset_top = 36.0
+offset_right = 1147.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_orljq")
+}

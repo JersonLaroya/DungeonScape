@@ -1,0 +1,222 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcvdjc6xd56d5"]
+
+[ext_resource type="Script" uid="uid://8wjvx7fkcqor" path="res://scripts/main_menu.gd" id="1_0dkrt"]
+[ext_resource type="PackedScene" uid="uid://bbeluq1okbp6c" path="res://ui/settings.tscn" id="2_wk0pr"]
+[ext_resource type="PackedScene" uid="uid://c1xvibmflfb8q" path="res://ui/controls.tscn" id="3_wk0pr"]
+[ext_resource type="PackedScene" uid="uid://ds63dx3aheixf" path="res://ui/credits.tscn" id="4_rmr83"]
+[ext_resource type="AudioStream" uid="uid://cnw2xv5ia7of" path="res://sounds/button_click.wav" id="5_ubpvv"]
+[ext_resource type="AudioStream" uid="uid://bpqwpdv1p7l0l" path="res://sounds/hover.wav" id="6_p8ri8"]
+[ext_resource type="AudioStream" uid="uid://bdxq480qla7j1" path="res://sounds/opening.wav" id="7_ubpvv"]
+[ext_resource type="PackedScene" uid="uid://bmpa3pxvpg31r" path="res://ui/mode.tscn" id="8_ubpvv"]
+[ext_resource type="PackedScene" uid="uid://2v77ia1k5igo" path="res://scenery/survival_story.tscn" id="9_arv2f"]
+[ext_resource type="PackedScene" uid="uid://dnl2i4kp05vin" path="res://scenery/endless_story.tscn" id="10_5klac"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0dkrt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 667.0
+color = Color(0, 0, 0, 1)
+
+[node name="main" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="main"]
+offset_left = 446.0
+offset_top = 145.0
+offset_right = 698.0
+offset_bottom = 204.0
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="main"]
+offset_left = 446.0
+offset_top = 224.0
+offset_right = 698.0
+offset_bottom = 283.0
+text = "Settings"
+
+[node name="Button3" type="Button" parent="main"]
+offset_left = 446.0
+offset_top = 310.0
+offset_right = 698.0
+offset_bottom = 369.0
+text = "Controls"
+
+[node name="Button4" type="Button" parent="main"]
+offset_left = 446.0
+offset_top = 395.0
+offset_right = 698.0
+offset_bottom = 454.0
+text = "Credits"
+
+[node name="Button5" type="Button" parent="main"]
+offset_left = 446.0
+offset_top = 478.0
+offset_right = 698.0
+offset_bottom = 537.0
+text = "Quit Game"
+
+[node name="are_you_sure" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Button" type="Button" parent="are_you_sure"]
+offset_left = 446.0
+offset_top = 229.0
+offset_right = 698.0
+offset_bottom = 288.0
+text = "Yes"
+
+[node name="Button2" type="Button" parent="are_you_sure"]
+offset_left = 446.0
+offset_top = 308.0
+offset_right = 698.0
+offset_bottom = 367.0
+text = "No"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="are_you_sure"]
+offset_top = 99.0
+offset_right = 1153.0
+offset_bottom = 222.0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]Are you sure you want to quit?"
+
+[node name="settings" parent="." instance=ExtResource("2_wk0pr")]
+visible = false
+
+[node name="controls" parent="." instance=ExtResource("3_wk0pr")]
+visible = false
+
+[node name="credits" parent="." instance=ExtResource("4_rmr83")]
+visible = false
+
+[node name="h" parent="credits/credits" index="2"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="n" parent="credits/credits" index="3"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="n2" parent="credits/credits" index="4"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="n3" parent="credits/credits" index="5"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="n4" parent="credits/credits" index="6"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="n5" parent="credits/credits" index="7"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="h2" parent="credits/credits" index="8"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="s" parent="credits/credits" index="9"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="s2" parent="credits/credits" index="10"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="s3" parent="credits/credits" index="11"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1150.0
+offset_bottom = 80.0
+
+[node name="h3" parent="credits/credits" index="15"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="t" parent="credits/credits" index="16"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="t2" parent="credits/credits" index="17"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="t3" parent="credits/credits" index="18"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="h4" parent="credits/credits" index="19"]
+offset_top = 0.0
+offset_bottom = 80.0
+
+[node name="interact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ubpvv")
+bus = &"SFX"
+
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p8ri8")
+bus = &"SFX"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ubpvv")
+autoplay = true
+bus = &"Music"
+
+[node name="mode" parent="." instance=ExtResource("8_ubpvv")]
+visible = false
+
+[node name="survival_story" parent="." instance=ExtResource("9_arv2f")]
+visible = false
+
+[node name="endless_story" parent="." instance=ExtResource("10_5klac")]
+visible = false
+
+[connection signal="mouse_entered" from="main/Button" to="." method="play_hover"]
+[connection signal="pressed" from="main/Button" to="." method="start_game"]
+[connection signal="mouse_entered" from="main/Button2" to="." method="play_hover"]
+[connection signal="pressed" from="main/Button2" to="." method="open_settings"]
+[connection signal="mouse_entered" from="main/Button3" to="." method="play_hover"]
+[connection signal="pressed" from="main/Button3" to="." method="open_controls"]
+[connection signal="mouse_entered" from="main/Button4" to="." method="play_hover"]
+[connection signal="pressed" from="main/Button4" to="." method="open_credits"]
+[connection signal="mouse_entered" from="main/Button5" to="." method="play_hover"]
+[connection signal="pressed" from="main/Button5" to="." method="quit_game"]
+[connection signal="mouse_entered" from="are_you_sure/Button" to="." method="play_hover"]
+[connection signal="pressed" from="are_you_sure/Button" to="." method="confirm_yes"]
+[connection signal="mouse_entered" from="are_you_sure/Button2" to="." method="play_hover"]
+[connection signal="pressed" from="are_you_sure/Button2" to="." method="confirm_no"]
+[connection signal="mouse_entered" from="settings/window_mode_options" to="." method="play_hover"]
+[connection signal="pressed" from="settings/window_mode_options" to="." method="play_interact"]
+[connection signal="mouse_entered" from="settings/music_button" to="." method="play_hover"]
+[connection signal="pressed" from="settings/music_button" to="." method="play_interact"]
+[connection signal="mouse_entered" from="settings/sfx_button" to="." method="play_hover"]
+[connection signal="pressed" from="settings/sfx_button" to="." method="play_interact"]
+[connection signal="mouse_entered" from="settings/close_button" to="." method="play_hover"]
+[connection signal="pressed" from="settings/close_button" to="." method="confirm_no"]
+[connection signal="mouse_entered" from="controls/close_button" to="." method="play_hover"]
+[connection signal="pressed" from="controls/close_button" to="." method="confirm_no"]
+[connection signal="mouse_entered" from="credits/close_button" to="." method="play_hover"]
+[connection signal="pressed" from="credits/close_button" to="." method="confirm_no"]
+[connection signal="mouse_entered" from="mode/Button" to="." method="play_hover"]
+[connection signal="pressed" from="mode/Button" to="." method="play_mode1"]
+[connection signal="mouse_entered" from="mode/Button2" to="." method="play_hover"]
+[connection signal="pressed" from="mode/Button2" to="." method="play_mode2"]
+[connection signal="pressed" from="survival_story/skip" to="." method="skip1"]
+[connection signal="pressed" from="endless_story/skip" to="." method="skip2"]
+
+[editable path="settings"]
+[editable path="controls"]
+[editable path="credits"]
+[editable path="mode"]
+[editable path="survival_story"]
+[editable path="endless_story"]

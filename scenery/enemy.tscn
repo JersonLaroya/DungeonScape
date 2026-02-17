@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://bne6ohsuhhd0u"]
+
+[ext_resource type="Script" uid="uid://dfx16jeftnulp" path="res://scripts/enemy.gd" id="1_niajt"]
+[ext_resource type="AudioStream" uid="uid://br28p62xb5m6d" path="res://sounds/317385__satanen__the-killer-is-coming-for-you.wav" id="2_0y524"]
+[ext_resource type="AudioStream" uid="uid://0556nnc6mdw4" path="res://sounds/monster_growl_1.wav" id="3_yjxpk"]
+[ext_resource type="AudioStream" uid="uid://b4quk6ysw1ntg" path="res://sounds/jumpscare.wav" id="5_8ucwh"]
+[ext_resource type="PackedScene" uid="uid://cixdgfsvyc345" path="res://scenery/monster.tscn" id="5_fvwyk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0y524"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yjxpk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yjxpk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_niajt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ucwh"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.282353)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_qjjs4"]
+material = SubResource("StandardMaterial3D_8ucwh")
+
+[node name="enemy" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34432, 0)
+script = ExtResource("1_niajt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_0y524")
+mesh = SubResource("CylinderMesh_yjxpk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.236264, 0)
+shape = SubResource("BoxShape3D_yjxpk")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.744394, 0, 0, 0, 0.297762, 0, 0, 0, 1.08606, 0, 0.833522, -0.2277)
+mesh = SubResource("BoxMesh_niajt")
+
+[node name="chasecast" type="RayCast3D" parent="."]
+transform = Transform3D(5.87, 0, 0, 0, 19.346, 0, 0, 0, 5, 0, 0.927505, -0.52338)
+target_position = Vector3(0, 0, -30)
+
+[node name="chasecast6" type="RayCast3D" parent="."]
+transform = Transform3D(5.87, 0, 0, 0, 19.346, 0, 0, 0, 5, 0.576643, 0.927505, -0.52338)
+target_position = Vector3(0, 0, -30)
+
+[node name="chasecast7" type="RayCast3D" parent="."]
+transform = Transform3D(5.87, 0, 0, 0, 19.346, 0, 0, 0, 5, -0.593561, 0.927505, -0.52338)
+target_position = Vector3(0, 0, -30)
+
+[node name="chasecast8" type="RayCast3D" parent="."]
+transform = Transform3D(5.87, 0, 0, 0, 19.346, 0, 0, 0, 5, 1.36899, 0.927505, -0.52338)
+target_position = Vector3(0, 0, -30)
+
+[node name="chasecast9" type="RayCast3D" parent="."]
+transform = Transform3D(5.87, 0, 0, 0, 19.346, 0, 0, 0, 5, -1.48312, 0.927505, -0.52338)
+target_position = Vector3(0, 0, -30)
+
+[node name="chasecast2" type="RayCast3D" parent="."]
+transform = Transform3D(2.941, 0, 0, 0, 9.69, 0, 0, 0, 0.5, 0, 0.927724, -0.523)
+target_position = Vector3(-2.5, 0, -30)
+
+[node name="chasecast3" type="RayCast3D" parent="."]
+transform = Transform3D(2.941, 0, 0, 0, 9.69, 0, 0, 0, 0.5, 0, 0.927505, -0.52338)
+target_position = Vector3(2.5, 0, -30)
+
+[node name="chasecast4" type="RayCast3D" parent="."]
+transform = Transform3D(2.941, 0, 0, 0, 9.69, 0, 0, 0, 0.5, 0, 0.927505, -0.52338)
+target_position = Vector3(5, 0, -30)
+
+[node name="chasecast5" type="RayCast3D" parent="."]
+transform = Transform3D(2.941, 0, 0, 0, 9.69, 0, 0, 0, 0.5, 0, 0.927505, -0.52338)
+target_position = Vector3(-5, 0, -30)
+
+[node name="killcast" type="Node3D" parent="."]
+transform = Transform3D(5.87, 0, 0, 0, 19.346, 0, 0, 0, 1, 0, -0.125818, -0.52338)
+
+[node name="killcast" type="RayCast3D" parent="killcast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.402922)
+enabled = false
+target_position = Vector3(0, 0, -1.5)
+
+[node name="chase_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0y524")
+volume_db = 10.0
+bus = &"Music"
+
+[node name="monster_growl" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_yjxpk")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="jumpscare_cam" type="Camera3D" parent="."]
+transform = Transform3D(-0.998971, 0.012581, -0.0435877, 0, 0.960779, 0.277315, 0.0453671, 0.277029, -0.95979, 0, 3.22562, -3.67953)
+
+[node name="eye_glow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.847, 0, 0, 0, 1, 0.126027, 2.55285, -0.0519822)
+mesh = SubResource("SphereMesh_qjjs4")
+skeleton = NodePath("")
+
+[node name="jumpscare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8ucwh")
+volume_db = 12.0
+bus = &"Music"
+
+[node name="monster" parent="." instance=ExtResource("5_fvwyk")]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
+
+[editable path="monster"]

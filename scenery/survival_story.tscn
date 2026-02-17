@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://2v77ia1k5igo"]
+
+[ext_resource type="AudioStream" uid="uid://e60yibqgiifk" path="res://sounds/survivalfinal.wav" id="1_k8xjv"]
+
+[sub_resource type="Animation" id="Animation_k8xjv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("l:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("l2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kvdls"]
+resource_name = "storyline"
+length = 133.93
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("l:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 75, 76),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("l2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 76, 77, 132, 133.93),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4pedc"]
+_data = {
+&"RESET": SubResource("Animation_k8xjv"),
+&"storyline": SubResource("Animation_kvdls")
+}
+
+[node name="survival_story" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1167.0
+offset_bottom = 656.0
+color = Color(0, 0, 0, 1)
+
+[node name="l" type="RichTextLabel" parent="."]
+offset_left = 52.0
+offset_top = 122.0
+offset_right = 1102.0
+offset_bottom = 446.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center] Deep beneath the earth, shrouded in darkness and silence, lies the DungeonScape  a place where light fades and time seems to stand; a place cursed by time and shadow. Legends say that those who enter are never the same again, for the labyrinth shifts with every step, guarding the remnants of lost souls and treasures beyond imagination. Whispers tell of those who entered seeking answers or glory, only to vanish into the shadows, their cries swallowed by the maze of endless corridors.
+You awaken alone on the cold, stone floor, the air thick with the scent of decay and echoes of the past. Strange glowing orbs pulse faintly in the distance, illuminating fragments of a forgotten world. A single thought haunts your mind  you must escape.
+"
+
+[node name="l2" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 44.0
+offset_top = 122.0
+offset_right = 1117.0
+offset_bottom = 414.0
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center] As you wander through the twisting halls, the walls seem to shift around you. Shadows move where none should, and faint footsteps follow your own. The dungeon hungers and its guardians do not rest. To survive, you must gather the scattered orbs, unlock the ancient key, and find the door that leads to freedom before the darkness claims you. But beware  every step draws the creatures nearer. In Survival Mode, escape is your only hope. In Endless Mode, the dungeon never ends, and neither does the chase. Each moment is borrowed time within the cursed heart of DungeonScape, where the line between life and death fades and the only light that remains is the one you carry.
+"
+
+[node name="skip" type="Button" parent="."]
+offset_left = 998.0
+offset_top = 579.0
+offset_right = 1128.0
+offset_bottom = 622.0
+text = "skip"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_k8xjv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4pedc")
+}

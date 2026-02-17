@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://7qpv26m6kfjv"]
+
+[ext_resource type="PackedScene" uid="uid://ca7q0ecxr528y" path="res://player/player.tscn" id="1_mubcl"]
+[ext_resource type="PackedScene" uid="uid://bfitya31inaek" path="res://scenery/dungeon_test.tscn" id="2_l8l8o"]
+[ext_resource type="PackedScene" uid="uid://bne6ohsuhhd0u" path="res://scenery/enemy.tscn" id="3_anu12"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_80vhd"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_hjsbj"]
+sky_material = SubResource("ProceduralSkyMaterial_80vhd")
+
+[sub_resource type="Environment" id="Environment_cwqvt"]
+background_mode = 2
+sky = SubResource("Sky_hjsbj")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 6.0
+glow_strength = 2.0
+glow_bloom = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjsbj"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cwqvt"]
+size = Vector3(15, 1, 15)
+
+[node name="level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cwqvt")
+
+[node name="floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.21976, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("BoxShape3D_hjsbj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+mesh = SubResource("BoxMesh_cwqvt")
+
+[node name="player" parent="." instance=ExtResource("1_mubcl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668764, 2.73586, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0540789, 0.998537, 0, -0.998537, 0.0540789, 14.3403, 12.2304, 19.9201)
+visible = false
+shadow_enabled = true
+
+[node name="dungeon_test" parent="." instance=ExtResource("2_l8l8o")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.90323, -12.9698, 0.410473)
+
+[node name="enemy" parent="." instance=ExtResource("3_anu12")]
+transform = Transform3D(0.999998, 0.00188288, 6.17964e-05, -0.00188288, 0.999998, -6.32249e-05, -6.19161e-05, 6.31077e-05, 1, 1.43614, 2.18596, 31.0495)

@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkn5nlesnh1us"]
+
+[ext_resource type="PackedScene" uid="uid://ca7q0ecxr528y" path="res://player/player.tscn" id="1_mubcl"]
+[ext_resource type="PackedScene" uid="uid://bfitya31inaek" path="res://scenery/dungeon_test.tscn" id="2_l8l8o"]
+[ext_resource type="PackedScene" uid="uid://bne6ohsuhhd0u" path="res://scenery/enemy.tscn" id="3_anu12"]
+[ext_resource type="PackedScene" uid="uid://dyroi2qcqne6q" path="res://scenery/destination.tscn" id="4_5e4e0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_80vhd"]
+sky_top_color = Color(0.180005, 0.180005, 0.180005, 1)
+sky_horizon_color = Color(0.051971, 0.051971, 0.051971, 1)
+ground_bottom_color = Color(0.151276, 0.151276, 0.151276, 1)
+ground_horizon_color = Color(0.051971, 0.051971, 0.051971, 1)
+
+[sub_resource type="Sky" id="Sky_hjsbj"]
+sky_material = SubResource("ProceduralSkyMaterial_80vhd")
+
+[sub_resource type="Environment" id="Environment_cwqvt"]
+background_mode = 2
+sky = SubResource("Sky_hjsbj")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjsbj"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cwqvt"]
+size = Vector3(15, 1, 15)
+
+[node name="level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cwqvt")
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("BoxShape3D_hjsbj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+mesh = SubResource("BoxMesh_cwqvt")
+
+[node name="player" parent="." instance=ExtResource("1_mubcl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73907, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0540789, 0.998537, 0, -0.998537, 0.0540789, 0, 5.21298, 0)
+shadow_enabled = true
+
+[node name="dungeon_test" parent="." instance=ExtResource("2_l8l8o")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -17.5226, 0.349497, -24.0374)
+
+[node name="enemy" parent="." node_paths=PackedStringArray("patrol_destinations") instance=ExtResource("3_anu12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.230662, 1.78604, 13.8027)
+patrol_destinations = [NodePath("../destination"), NodePath("../destination2"), NodePath("../destination3"), NodePath("../destination3"), NodePath("../destination4"), NodePath("../destination5"), NodePath("../destination6"), NodePath("../destination7"), NodePath("../destination8"), NodePath("../destination9"), NodePath("../destination10"), NodePath("../destination11"), NodePath("../destination12")]
+
+[node name="destination" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4947, -5.69817)
+
+[node name="destination2" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.13111, 1.4947, -6.52865)
+
+[node name="destination3" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.99953, 1.4947, -13.9236)
+
+[node name="destination4" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.99953, 1.4947, -22.536)
+
+[node name="destination5" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5406, 1.4947, -22.536)
+
+[node name="destination6" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5406, 1.4947, -7.19454)
+
+[node name="destination7" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7607, 1.4947, -15.335)
+
+[node name="destination8" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2859, 1.4947, -12.5192)
+
+[node name="destination9" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1725, 1.4947, -1.12576)
+
+[node name="destination10" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1519, 1.4947, 9.86181)
+
+[node name="destination11" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.83147, 1.4947, 4.70622)
+
+[node name="destination12" parent="." instance=ExtResource("4_5e4e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3995, 1.4947, 11.9528)

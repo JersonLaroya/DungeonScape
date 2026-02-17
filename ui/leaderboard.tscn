@@ -1,0 +1,173 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsy6xt2bk2eto"]
+
+[sub_resource type="GDScript" id="GDScript_143yq"]
+script/source = "extends CanvasLayer
+
+@onready var rank_container = $rank_container
+@onready var name_container = $name_container
+@onready var score_container = $score_container
+@onready var ui = get_tree().current_scene.get_node(\"player/player_ui/ending\")
+
+var not_top_10: bool = true
+
+func show_leaderboard():
+	# Clear old labels
+	for c in score_container.get_children(): c.queue_free()
+	for c in name_container.get_children(): c.queue_free()
+	for c in rank_container.get_children(): c.queue_free()
+
+	# Load data
+	var path = \"user://leaderboard.json\"
+	var data: Array = []
+
+	if FileAccess.file_exists(path):
+		var file = FileAccess.open(path, FileAccess.READ)
+		if file:
+			var parsed = JSON.parse_string(file.get_as_text())
+			if parsed is Array: data = parsed
+			file.close()
+
+	# Get player name
+	var current_player_name = \"\"
+	if Engine.has_singleton(\"PlayerData\"):
+		current_player_name = Engine.get_singleton(\"PlayerData\").name
+	else:
+		if data.size() > 0:
+			current_player_name = data[-1].get(\"name\", \"\")
+
+	# Sort properly descending
+	var temp = data.duplicate()
+	temp.sort_custom(func(a, b): return int(a.get(\"orbs\", 0)) > int(b.get(\"orbs\", 0)))
+
+	# Get real rank + score of current player
+	var current_player_rank = 0
+	var current_player_score = 0
+
+	for i in range(temp.size()):
+		if temp[i].get(\"name\",\"\") == current_player_name:
+			current_player_rank = i + 1
+			current_player_score = int(temp[i].get(\"orbs\", 0))
+			break
+
+	# Build top 10 list
+	var top_list: Array = []
+	for i in range(min(temp.size(), 10)):
+		top_list.append(temp[i])
+
+	# Check if player is really inside top 10
+	if current_player_rank <= 10:
+		not_top_10 = false
+	else:
+		not_top_10 = true
+
+	# If not top 10 AND total list > 10 → replace 10th slot
+	if not_top_10 and temp.size() > 10:
+		top_list[9] = {\"name\": current_player_name, \"orbs\": current_player_score}
+
+	# Display leaderboard
+	for i in range(top_list.size()):
+		var entry = top_list[i]
+		var score = int(entry.get(\"orbs\", 0))
+		var rank = i + 1
+		var pname = entry.get(\"name\",\"Unknown\")
+
+		# If this is 10th slot replacement → use real rank
+		if i == 9 and not_top_10:
+			rank = current_player_rank
+			pname = \"You\"
+		elif pname == current_player_name:
+			pname = \"You\"
+
+		var r = Label.new()
+		r.text = str(rank)
+		r.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		rank_container.add_child(r)
+
+		var n = Label.new()
+		n.text = pname
+		n.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		name_container.add_child(n)
+
+		var s = Label.new()
+		s.text = \"Score: \" + str(score)
+		s.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		score_container.add_child(s)
+
+		if pname == \"You\":
+			r.add_theme_color_override(\"font_color\", Color(1,0,0))
+			n.add_theme_color_override(\"font_color\", Color(1,0,0))
+			s.add_theme_color_override(\"font_color\", Color(1,0,0))
+			r.set(\"theme_override_font_sizes/font_size\", 22)
+			n.set(\"theme_override_font_sizes/font_size\", 22)
+			s.set(\"theme_override_font_sizes/font_size\", 22)
+		
+	await get_tree().create_timer(7, true).timeout
+	if ui:
+		ui.visible = true
+		var anim_player = ui.get_node(\"AnimationPlayer\")
+		if anim_player:
+			anim_player.play(\"game_ending\")
+			
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+"
+
+[node name="leaderboard" type="CanvasLayer"]
+layer = 2
+script = SubResource("GDScript_143yq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -50.0
+offset_right = 1179.0
+offset_bottom = 655.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 219.0
+offset_top = 51.0
+offset_right = 968.0
+offset_bottom = 152.0
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]LEADERBOARD
+"
+
+[node name="rank_container" type="VBoxContainer" parent="."]
+offset_left = 309.0
+offset_top = 170.0
+offset_right = 357.0
+offset_bottom = 635.0
+
+[node name="rank_label" type="Label" parent="rank_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="name_container" type="VBoxContainer" parent="."]
+offset_left = 389.0
+offset_top = 170.0
+offset_right = 734.0
+offset_bottom = 635.0
+
+[node name="name_label" type="Label" parent="name_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="score_container" type="VBoxContainer" parent="."]
+offset_left = 743.0
+offset_top = 170.0
+offset_right = 857.0
+offset_bottom = 635.0
+
+[node name="score_label" type="Label" parent="score_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="close_button" type="Button" parent="."]
+offset_left = 1092.0
+offset_top = 6.0
+offset_right = 1147.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 30
+text = "X"
