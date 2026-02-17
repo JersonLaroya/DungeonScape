@@ -10,6 +10,9 @@
 .mono/
 data_*/
 
+# Temporary files
+*.tmp
+
 # System files
 .DS_Store
 thumbs.db
